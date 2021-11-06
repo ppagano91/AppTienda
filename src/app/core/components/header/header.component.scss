@@ -1,0 +1,11 @@
+.header {
+  &__toolbar {
+    display: flex;
+    justify-content: space-between;
+    .nav--title {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+  }
+}

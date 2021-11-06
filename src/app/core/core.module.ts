@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { MaterialModule } from '../material/material.module';
+import { RouterModule } from '@angular/router';
 
-
-
+// Importamos en módulo de ruteo que está en la app
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  declarations: [HeaderComponent, FooterComponent],
+  imports: [CommonModule, MaterialModule, RouterModule],
+  exports: [HeaderComponent, FooterComponent],
 })
-export class CoreModule { }
+export class CoreModule {}

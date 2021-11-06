@@ -1,0 +1,16 @@
+<mat-toolbar color="primary" class="header__toolbar">
+  <div class="nav--title">
+    <mat-icon>house </mat-icon>
+    <h1>Mi Tienda</h1>
+  </div>
+  <nav>
+    <a mat-button *ngFor="let link of links" routerLink="{{ link.path }}">
+      <mat-icon *ngIf="link.isIcon; else text">
+        {{ link.description }}
+      </mat-icon>
+      <ng-template #text>
+        {{ link.description }}
+      </ng-template>
+    </a>
+  </nav>
+</mat-toolbar>
