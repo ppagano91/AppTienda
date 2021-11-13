@@ -1,0 +1,25 @@
+<div class="mat-card__container">
+  <mat-card class="mat-card">
+    <mat-card-title class="mat-card__title">
+      {{ productData.title }}
+    </mat-card-title>
+    <img
+      class="mat-card__image"
+      mat-card-image
+      src="{{ productData.image }}"
+      alt=""
+    />
+    <div class="mat-card__buttons">
+      <!-- Como centor los botones -->
+      <button mat-raised-button color="primary">
+        Agregar a Favoritos <mat-icon>favorite</mat-icon>
+      </button>
+
+      <button (click)="addProductToCart()" mat-raised-button color="primary">
+        Agregar al Carrito <mat-icon>add_shopping_cart</mat-icon>
+      </button>
+    </div>
+  </mat-card>
+  <!-- Como pongo un espacio entra cards sin el br -->
+  <br />
+</div>

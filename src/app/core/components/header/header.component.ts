@@ -18,17 +18,23 @@ export class HeaderComponent implements OnInit {
       isIcon: false,
     },
     {
-      path: 'Contact',
+      path: 'contact',
       description: 'Contacto',
       isIcon: false,
     },
     {
-      path: 'Cart',
+      path: 'cart',
       description: 'shopping_cart',
       isIcon: true,
     },
   ];
+
+  menu = true;
+
   constructor() {}
 
   ngOnInit(): void {}
+  toggleMenu(): void {
+    this.menu = !this.menu;
+  }
 }

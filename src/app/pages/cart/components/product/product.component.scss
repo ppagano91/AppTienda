@@ -1,0 +1,6 @@
+.mat-card {
+  &__image {
+    max-height: 100px;
+    object-fit: cover;
+  }
+}

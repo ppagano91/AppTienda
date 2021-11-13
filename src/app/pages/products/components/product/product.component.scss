@@ -1,0 +1,32 @@
+.mat-card {
+  & {
+    // height: 700px;
+    display: flex;
+    align-items: baseline;
+    flex-direction: column;
+  }
+
+  &__container {
+    gap: 10px;
+  }
+  &__title {
+    height: 50px;
+    text-align: center;
+  }
+  &__image {
+    height: 300px;
+    object-fit: cover;
+
+    &__buttons {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      // align-items: center;
+      text-align: center;
+      // gap: 20px;
+      // justify-items: center;
+      // justify-self: center;
+    }
+  }
+}

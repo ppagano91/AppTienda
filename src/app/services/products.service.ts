@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class ProductsService {
   private productsData: any;
 
-  private productUrl = 'https://fakestoreape.com/products';
+  private productUrl = 'https://fakestoreapi.com/products';
   constructor(private http: HttpClient) {}
 
   getData() {

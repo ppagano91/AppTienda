@@ -8,17 +8,17 @@ const routes: Routes = [
       import('./pages/home/home.module').then((m) => m.HomeModule),
   },
   {
-    path: 'home',
+    path: 'products',
     loadChildren: () =>
       import('./pages/products/products.module').then((m) => m.ProductsModule),
   },
   {
-    path: 'home',
+    path: 'contact',
     loadChildren: () =>
       import('./pages/contact/contact.module').then((m) => m.ContactModule),
   },
   {
-    path: 'home',
+    path: 'cart',
     loadChildren: () =>
       import('./pages/cart/cart.module').then((m) => m.CartModule),
   },

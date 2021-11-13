@@ -1,1 +1,10 @@
-<p>cart works!</p>
+<main>
+  <h2>Mi Compra</h2>
+
+  <h4 *ngIf="products.length === 0">No hay productos en el carrito!</h4>
+
+  <app-product
+    *ngFor="let product of products"
+    [productData]="product"
+  ></app-product>
+</main>
