@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -8,7 +9,10 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ProductComponent implements OnInit {
   @Input() productData: any;
-  constructor(private _cartService: CartService) {}
+  constructor(
+    private _cartService: CartService,
+    private _snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
     // console.log(this.productData);
@@ -16,5 +20,14 @@ export class ProductComponent implements OnInit {
 
   addProductToCart() {
     this._cartService.addProductToCart(this.productData);
+    this._snackBar.open(
+      `¡${this.productData.title} agregado al carrito!`,
+      'X',
+      {
+        duration: 2000,
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom',
+      }
+    );
   }
 }

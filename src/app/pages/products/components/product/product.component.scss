@@ -1,32 +1,40 @@
 .mat-card {
   & {
-    // height: 700px;
+    width: 100%;
     display: flex;
     align-items: baseline;
     flex-direction: column;
+    background-color: ivory;
+    border: 1px solid black;
+    border-radius: 10px;
   }
 
   &__container {
     gap: 10px;
+    margin: 10px;
   }
   &__title {
     height: 50px;
     text-align: center;
+    color: black;
+    text-align: center;
+    background-color: beige;
+    justify-content: center;
   }
   &__image {
     height: 300px;
-    object-fit: cover;
+    object-fit: contain;
+  }
+  &__buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    // align-items: center;
+    text-align: center;
+    gap: 20px;
 
-    &__buttons {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-content: center;
-      // align-items: center;
-      text-align: center;
-      // gap: 20px;
-      // justify-items: center;
-      // justify-self: center;
-    }
+    // justify-items: center;
+    // justify-self: center;
   }
 }

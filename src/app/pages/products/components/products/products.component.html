@@ -1,16 +1,21 @@
 <main>
   <!-- Este componente va a ser el "contenedor" -->
+
   <h2>Productos de Mi Tienda</h2>
-  <app-product-list [products]="this.productsData"> </app-product-list>
-  <button>
-    <mat-icon mat-raised-button color="primary">add_shopping_cart</mat-icon>
-  </button>
-  <button>
-    <mat-icon aria-hidden="false" aria-label="Example thumbs up SVG icon"
-      >thumb_up</mat-icon
-    >
-  </button>
-  <button mat-raised-button color="primary">
-    <mat-icon>favorite</mat-icon>
-  </button>
+  <div *ngIf="!loading">
+    <app-product-list [products]="this.productsData"> </app-product-list>
+
+    <button>
+      <mat-icon mat-raised-button color="primary">add_shopping_cart</mat-icon>
+    </button>
+    <button>
+      <mat-icon aria-hidden="false" aria-label="Example thumbs up SVG icon"
+        >thumb_up</mat-icon
+      >
+    </button>
+    <button mat-raised-button color="primary">
+      <mat-icon>favorite</mat-icon>
+    </button>
+  </div>
+  <app-load-spinner [loading]="loading"></app-load-spinner>
 </main>

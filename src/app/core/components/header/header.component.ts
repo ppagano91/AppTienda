@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  darkMode = false;
+  active = false;
+
+  cartLength = 0;
   links = [
     {
       path: 'home',
@@ -31,10 +36,24 @@ export class HeaderComponent implements OnInit {
 
   menu = true;
 
-  constructor() {}
+  constructor(private _cartSerice: CartService) {}
 
   ngOnInit(): void {}
+
+  getCartLength() {
+    // this.cartLength = this._cartSerice.getCartLength();
+    return this._cartSerice.getCartLength();
+  }
+
   toggleMenu(): void {
     this.menu = !this.menu;
+  }
+
+  toggleDarkMode(): void {
+    this.darkMode = !this.darkMode;
+  }
+
+  toggleActive(): void {
+    this.active = !this.active;
   }
 }

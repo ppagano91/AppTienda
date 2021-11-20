@@ -1,1 +1,53 @@
-<p>contact works!</p>
+<div class="contact__container">
+  <h2>Contactáctanos</h2>
+  <form [formGroup]="formData" (ngSubmit)="submitForm()" class="form">
+    <label for="name">Nombre</label>
+    <input
+      formControlName="name"
+      name="name"
+      id="name"
+      placeholder="Nombre"
+      type="text"
+    />
+
+    <label for="lastName">Apellido</label>
+    <input
+      formControlName="lastName"
+      name="lastName"
+      id="lastName"
+      placeholder="Apellido"
+      type="text"
+    />
+
+    <label for="lastName">Edad</label>
+    <input
+      formControlName="age"
+      name="age"
+      id="age"
+      type="number"
+      min="0"
+      max="99"
+    />
+
+    <label for="email">Email</label>
+    <input
+      formControlName="email"
+      id="email"
+      name="email"
+      placeholder="ejemplo@ejemplo.com"
+      type="text"
+    />
+
+    <label for="email">Suscribirse a Mi Tienda</label>
+    <input
+      formControlName="mailingList"
+      id="mailingList"
+      name="mailingList"
+      type="checkbox"
+    />
+
+    <div [formGroup]="userAddress()"></div>
+
+    <button type="submit">Enviar</button>
+  </form>
+</div>

@@ -1,9 +1,38 @@
 <header class="header">
-  <div class="header__container">
+  <div [ngClass]="darkMode ? 'darkMode' : ''" class="header__container">
     <mat-toolbar color="primary" class="header__toolbar">
       <div class="header__toolbar--title">
         <mat-icon>house</mat-icon>
         <h1>Mi Tienda</h1>
+        <button
+          [ngClass]="active ? '' : 'active'"
+          class="btnSwitch"
+          (click)="toggleDarkMode()"
+          (click)="toggleActive()"
+        >
+          <span>
+            <i *ngIf="darkMode" class="fas fa-sun"></i>
+            <!-- <img
+            class="image"
+            *ngIf="darkMode"
+            height="40"
+            width="40"
+            src="../../../../assets/images/sun-icon.svg"
+            alt="light mode icon"
+        /> -->
+          </span>
+          <span>
+            <i *ngIf="!darkMode" class="fas fa-moon"></i>
+            <!-- <img
+            class="image"
+            *ngIf="!darkMode"
+            height="30"
+            width="30"
+            src="../../../../assets/images/moon-icon.svg"
+            alt="dark mode icon"
+        /> -->
+          </span>
+        </button>
       </div>
 
       <!-- <button mat-button>
@@ -23,9 +52,13 @@
         </button>
       </div>
 
-      <nav class="header__nav" [ngClass]="menu ? 'hidden' : ''">
+      <nav class="header__nav" [ngClass]="!menu ? 'hidden' : ''">
         <a mat-button *ngFor="let link of links" routerLink="{{ link.path }}">
-          <mat-icon *ngIf="link.isIcon; else text">
+          <mat-icon
+            matBadge="{{ getCartLength() }}"
+            matBadgeColor="warn"
+            *ngIf="link.isIcon; else text"
+          >
             {{ link.description }}
           </mat-icon>
           <ng-template #text>

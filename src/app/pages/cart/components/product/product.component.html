@@ -2,4 +2,7 @@
   <p>{{ productData.title }}</p>
   <p>{{ productData.price }}</p>
   <img class="mat-card__image" src="{{ productData.image }}" alt="" />
+  <button (click)="removeProduct()" mat-raised-button color="warn">
+    <mat-icon> delete </mat-icon>
+  </button>
 </mat-card>

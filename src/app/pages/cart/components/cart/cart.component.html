@@ -6,5 +6,6 @@
   <app-product
     *ngFor="let product of products"
     [productData]="product"
+    (productRemovalEvent)="getProducts()"
   ></app-product>
 </main>

@@ -1,6 +1,8 @@
 <div class="product-list">
   <!-- El product-list recibe los productos y le va a pasar cada uno a app-product -->
-  <div *ngFor="let product of products">
-    <app-product [productData]="product" class="app-product"></app-product>
-  </div>
+  <app-product
+    *ngFor="let product of products"
+    [productData]="product"
+    class="app-product"
+  ></app-product>
 </div>
