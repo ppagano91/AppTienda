@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -7,19 +12,19 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent implements OnInit {
-  formData = new FormGroup({
-    name: new FormControl(''),
-    lastName: new FormControl(''),
-    email: new FormControl(''),
-    age: new FormControl(0),
-    mailingList: new FormControl(true),
-    address: new FormGroup({
-      street: new FormControl(''),
-      number: new FormControl(''),
-      zipCode: new FormControl(''),
+  formData = this.fb.group({
+    name: ['', Validators.required],
+    lastName: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    age: [0, [Validators.max(99), Validators.min(18)]],
+    mailingList: [],
+    address: this.fb.group({
+      street: [''],
+      number: [''],
+      zipCode: [''],
     }),
   });
-  constructor() {}
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {}
 
@@ -31,12 +36,28 @@ export class ContactComponent implements OnInit {
     return this.formData.get('address');
   }
 
+  userEmail() {
+    return this.formData.get('email');
+  }
+
   userStreet() {
     return this.userAddress()?.get('street');
   }
 
   submitForm() {
     // console.log(`${this.name} ${this.lastName}`);
-    console.log(this.formData.get('name'));
+    if (this.formData.valid) {
+      console.log(this.formData.get('name'));
+    } else {
+      alert('Faltan datos en el formulario');
+    }
+  }
+
+  resetAddress() {
+    this.userAddress()?.setValue({
+      street: 'Buenos Aires',
+      number: '1234',
+      zipCode: '5000',
+    });
   }
 }

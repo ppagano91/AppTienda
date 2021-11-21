@@ -1,53 +1,68 @@
-<div class="contact__container">
+<mat-card class="contact__container">
   <h2>Contactáctanos</h2>
   <form [formGroup]="formData" (ngSubmit)="submitForm()" class="form">
-    <label for="name">Nombre</label>
-    <input
-      formControlName="name"
-      name="name"
-      id="name"
-      placeholder="Nombre"
-      type="text"
-    />
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="name" placeholder="Nombre" type="text" />
+    </mat-form-field>
 
-    <label for="lastName">Apellido</label>
-    <input
-      formControlName="lastName"
-      name="lastName"
-      id="lastName"
-      placeholder="Apellido"
-      type="text"
-    />
+    <mat-form-field appearance="fill">
+      <mat-label>Apellido</mat-label>
+      <input
+        matInput
+        formControlName="lastName"
+        placeholder="Apellido"
+        type="text"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Edad</mat-label>
+      <input matInput formControlName="age" type="number" min="0" max="99" />
+    </mat-form-field>
 
-    <label for="lastName">Edad</label>
-    <input
-      formControlName="age"
-      name="age"
-      id="age"
-      type="number"
-      min="0"
-      max="99"
-    />
+    <mat-form-field appearance="fill">
+      <mat-label for="email">Email</mat-label>
+      <input
+        matInput
+        formControlName="email"
+        placeholder="ejemplo@ejemplo.com"
+        type="text"
+      />
+    </mat-form-field>
 
-    <label for="email">Email</label>
-    <input
-      formControlName="email"
-      id="email"
-      name="email"
-      placeholder="ejemplo@ejemplo.com"
-      type="text"
-    />
+    <label for="mailingList">Suscribirse a Mi Tienda</label>
+    <mat-checkbox formControlName="mailingList" type="checkbox"> </mat-checkbox>
 
-    <label for="email">Suscribirse a Mi Tienda</label>
-    <input
-      formControlName="mailingList"
-      id="mailingList"
-      name="mailingList"
-      type="checkbox"
-    />
+    <div formGroupName="address">
+      <label for="street">Calle</label>
+      <input
+        formControlName="street"
+        name="street"
+        id="street"
+        placeholder="Calle"
+        type="text"
+      />
 
-    <div [formGroup]="userAddress()"></div>
+      <label for="number">Numeración</label>
+      <input
+        formControlName="number"
+        name="number"
+        id="number"
+        placeholder="Número"
+        type="text"
+      />
 
-    <button type="submit">Enviar</button>
+      <label for="zipCode">Código Postal</label>
+      <input
+        formControlName="zipCode"
+        name="zipCode"
+        id="zipCode"
+        placeholder="Código Postal"
+        type="text"
+      />
+    </div>
+
+    <button [disabled]="formData.invalid" type="submit">Enviar</button>
+    <button (click)="resetAddress()">Resetear Dirección</button>
   </form>
-</div>
+</mat-card>

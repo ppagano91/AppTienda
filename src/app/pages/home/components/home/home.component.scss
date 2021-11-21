@@ -1,0 +1,32 @@
+.mat-card {
+  width: 500px;
+  height: auto;
+  margin: 50px 100px;
+  // padding: 20px 25px;
+
+  &__avatar {
+    background-image: url("../../../../../assets/images/Fotografía_Pagano_Patricio.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100px;
+    height: 100px;
+  }
+
+  &__image {
+    padding-top: 10px;
+  }
+  &__content {
+    padding: 10px 0px;
+    text-align: justify;
+  }
+
+  &-actions {
+    display: flex;
+    justify-content: center;
+  }
+  &__button {
+    background-color: #3b5998;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+}
