@@ -15,6 +15,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatRadioModule } from '@angular/material/radio';
 
 let materialModules = [
   MatButtonModule,
@@ -30,6 +31,7 @@ let materialModules = [
   MatTableModule,
   MatBadgeModule,
   MatDividerModule,
+  MatRadioModule,
 ];
 
 @NgModule({

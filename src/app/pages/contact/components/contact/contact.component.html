@@ -1,68 +1,154 @@
-<mat-card class="contact__container">
-  <h2>Contactáctanos</h2>
-  <form [formGroup]="formData" (ngSubmit)="submitForm()" class="form">
-    <mat-form-field appearance="fill">
-      <mat-label>Nombre</mat-label>
-      <input matInput formControlName="name" placeholder="Nombre" type="text" />
-    </mat-form-field>
+<main>
+  <div class="contact__container">
+    <section class="contact__hero">
+      <mat-card class="form__container">
+        <h2>Suscríbete a Mi Tienda</h2>
+        <form [formGroup]="formData" (ngSubmit)="submitForm()" class="form">
+          <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input
+              matInput
+              formControlName="name"
+              placeholder="Nombre"
+              type="text"
+            />
+          </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Apellido</mat-label>
-      <input
-        matInput
-        formControlName="lastName"
-        placeholder="Apellido"
-        type="text"
-      />
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Edad</mat-label>
-      <input matInput formControlName="age" type="number" min="0" max="99" />
-    </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Apellido</mat-label>
+            <input
+              matInput
+              formControlName="lastName"
+              placeholder="Apellido"
+              type="text"
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Edad</mat-label>
+            <input
+              matInput
+              formControlName="age"
+              type="number"
+              min="0"
+              max="99"
+            />
+          </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label for="email">Email</mat-label>
-      <input
-        matInput
-        formControlName="email"
-        placeholder="ejemplo@ejemplo.com"
-        type="text"
-      />
-    </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              formControlName="email"
+              placeholder="ejemplo@ejemplo.com"
+              type="text"
+            />
+            <mat-error *ngIf="formData.get('email')?.hasError('required')">
+              Este campo es obligatorio</mat-error
+            >
+            <mat-error *ngIf="formData.get('email')?.hasError('email')">
+              Ingrese un correo electrónico válido</mat-error
+            >
+          </mat-form-field>
 
-    <label for="mailingList">Suscribirse a Mi Tienda</label>
-    <mat-checkbox formControlName="mailingList" type="checkbox"> </mat-checkbox>
+          <mat-form-field appearance="fill">
+            <mat-label>Teléfono</mat-label>
+            <input
+              matInput
+              formControlName="phone"
+              placeholder="Teléfono"
+              type="number"
+            />
+          </mat-form-field>
 
-    <div formGroupName="address">
-      <label for="street">Calle</label>
-      <input
-        formControlName="street"
-        name="street"
-        id="street"
-        placeholder="Calle"
-        type="text"
-      />
+          <mat-form-field appearance="fill">
+            <mat-label>Nacionalidad</mat-label>
+            <mat-select formControlName="country">
+              <mat-option value="Argentina">Argentina</mat-option>
+              <mat-option value="Bolivia">Bolivia</mat-option>
+              <mat-option value="Brasil">Brasil</mat-option>
+              <mat-option value="Colombia">Colombia</mat-option>
+              <mat-option value="Ecuador">Ecuador</mat-option>
+              <mat-option value="Paraguay">Paraguay</mat-option>
+              <mat-option value="Uruguay">Uruguay</mat-option>
+              <mat-option value="Venezuela">Venezuela</mat-option>
+              <mat-option value="Otro">Otro</mat-option>
+            </mat-select>
+          </mat-form-field>
 
-      <label for="number">Numeración</label>
-      <input
-        formControlName="number"
-        name="number"
-        id="number"
-        placeholder="Número"
-        type="text"
-      />
+          <div class="form__radio-buttons-container">
+            <mat-label appearance="fill">Género</mat-label>
+            <mat-radio-group
+              class="form__radio-buttons"
+              formControlName="gender"
+              appearance="fill"
+              color="primary"
+            >
+              <mat-radio-button value="masculino">Masculino</mat-radio-button>
+              <mat-radio-button value="femenino">Femenino</mat-radio-button>
+              <mat-radio-button value="otro">Otro</mat-radio-button>
+            </mat-radio-group>
+          </div>
 
-      <label for="zipCode">Código Postal</label>
-      <input
-        formControlName="zipCode"
-        name="zipCode"
-        id="zipCode"
-        placeholder="Código Postal"
-        type="text"
-      />
-    </div>
+          <div class="form__checkbox">
+            <label for="mailingList">Suscribirse a Mi Tienda</label>
+            <mat-checkbox formControlName="mailingList" type="checkbox">
+            </mat-checkbox>
+          </div>
 
-    <button [disabled]="formData.invalid" type="submit">Enviar</button>
-    <button (click)="resetAddress()">Resetear Dirección</button>
-  </form>
-</mat-card>
+          <div>
+            <mat-divider></mat-divider>
+          </div>
+          <div class="form__buttons">
+            <button
+              [disabled]="formData.invalid"
+              mat-raised-button
+              color="primary"
+              type="submit"
+            >
+              Enviar
+            </button>
+            <button
+              mat-raised-button
+              color="warn"
+              (click)="resetForm()"
+              type="button"
+            >
+              Resetear Formulario
+            </button>
+          </div>
+
+          <app-load-spinner [loading]="loading"></app-load-spinner>
+
+          <!-- <div formGroupName="address">
+            <label for="street">Calle</label>
+            <input
+              formControlName="street"
+              name="street"
+              id="street"
+              placeholder="Calle"
+              type="text"
+            />
+
+            <label for="number">Numeración</label>
+            <input
+              formControlName="number"
+              name="number"
+              id="number"
+              placeholder="Número"
+              type="text"
+            />
+
+            <label for="zipCode">Código Postal</label>
+            <input
+              formControlName="zipCode"
+              name="zipCode"
+              id="zipCode"
+              placeholder="Código Postal"
+              type="text"
+            />
+          </div> -->
+        </form>
+      </mat-card>
+    </section>
+  </div>
+</main>

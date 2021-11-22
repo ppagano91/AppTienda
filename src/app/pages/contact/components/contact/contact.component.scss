@@ -1,0 +1,69 @@
+.contact {
+  &__hero {
+    background-image: url("../../../../../assets/images/contact-image.jpg");
+    background-size: cover;
+    justify-content: center;
+    background-position: center;
+
+    display: flex;
+  }
+  &__container {
+  }
+}
+
+.form {
+  & {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__container {
+    background-color: rgba(0, 0, 0, 0.75);
+    margin: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 500px;
+    height: auto;
+    border: 1px solid black;
+    border-radius: 20px;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.9);
+      transform: scale(1.02);
+      transition: background-color 0.5s linear;
+    }
+  }
+
+  &__radio-buttons {
+    & {
+      margin: 10px 0;
+      display: flex;
+      gap: 10px;
+    }
+    &-container {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__checkbox {
+    display: flex;
+    // justify-content: center;
+    gap: 20px;
+    margin: 10px 0;
+  }
+
+  &__buttons {
+    margin: 10px 0;
+    justify-content: center;
+    display: flex;
+    gap: 15px;
+  }
+
+  // .redText {
+  //   color: red;
+  // }
+}
