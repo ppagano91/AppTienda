@@ -1,4 +1,41 @@
-<mat-card class="mat-card">
+<section class="hero">
+  <mat-card class="hero__card">
+    <mat-card-title class="hero__card--title">
+      <h2>Bienvenido a Mi Tienda</h2>
+    </mat-card-title>
+    <div class="hero__card--text">
+      <h4>Todos los productos a un click de distancia</h4>
+    </div>
+    <div class="hero__card__button">
+      <a
+        mat-raised-button
+        color="primary"
+        routerLink="/products"
+        class="hero__card-button"
+        >¡Ver los productos!</a
+      >
+    </div>
+  </mat-card>
+</section>
+
+<mat-card class="map__section">
+  <div class="map__container" id="map">
+    <h4 class="map--title">¡Aquí te esperamos!</h4>
+    <p class="map--text">En Bahía Blanca Plaza Shopping - Bahía Blanca</p>
+    <div class="map--iframe">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1556.8847708066219!2d-62.2426832!3d-38.7001377!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95eda4a139ab9de1%3A0xf671e9657da59b6b!2sBahia%20Blanca%20Plaza%20Shopping!5e0!3m2!1ses-419!2sar!4v1637633680437!5m2!1ses-419!2sar"
+        width="600"
+        height="450"
+        style="border: 1px solid black"
+        allowfullscreen=""
+        loading="lazy"
+      ></iframe>
+    </div>
+  </div>
+</mat-card>
+
+<!-- <mat-card class="mat-card__container">
   <mat-card-header>
     <div mat-card-avatar class="mat-card__avatar"></div>
     <mat-card-title class="mat-card__title">Patricio Pagano</mat-card-title>
@@ -28,4 +65,4 @@
       >Contactar</a
     >
   </mat-card-actions>
-</mat-card>
+</mat-card> -->

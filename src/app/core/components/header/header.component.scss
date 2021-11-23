@@ -12,14 +12,13 @@
     width: 100%;
 
     margin: 0 100px;
-    max-width: 1200px;
   }
   &__toolbar {
     display: flex;
     justify-content: space-between;
 
-    width: 100vw;
     color: black;
+    // width: 100vw;
     width: 100%;
     @media (min-width: 1240px) {
       // max-width: 1200px;

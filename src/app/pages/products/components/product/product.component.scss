@@ -7,6 +7,8 @@
     background-color: ivory;
     border: 1px solid black;
     border-radius: 10px;
+    justify-content: center;
+    align-items: center;
   }
 
   &__container {
@@ -16,14 +18,18 @@
   &__title {
     height: 50px;
     text-align: center;
-    color: black;
-    text-align: center;
-    background-color: beige;
+    color: ivory;
+    background-color: black;
     justify-content: center;
+    align-items: center;
+    z-index: 1;
   }
   &__image {
     height: 300px;
     object-fit: contain;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
   &__buttons {
     width: 100%;

@@ -1,7 +1,34 @@
+.hero {
+  & {
+    display: flex;
+    background-image: url("../../../../../assets/images/hero-tienda.jpg");
+    background-size: cover;
+    height: 500px;
+    justify-content: center;
+  }
+  &__card {
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // width: auto;
+    height: 200px;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.85);
+      transition: background-color 0.5s linear;
+    }
+  }
+}
+
 .mat-card {
-  width: 500px;
-  height: auto;
-  margin: 50px 100px;
+  &__container {
+    width: 440px;
+    height: auto;
+    margin: 50px 100px;
+  }
+
   // padding: 20px 25px;
 
   &__avatar {
@@ -28,5 +55,37 @@
     background-color: #3b5998;
     border: 1px solid black;
     border-radius: 10px;
+  }
+}
+
+.map {
+  &__section {
+    display: block;
+    margin: 10px 20px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  &--title {
+    color: ivory;
+    text-align: center;
+    font-size: 16px;
+  }
+  &--text {
+    color: ivory;
+    font-size: 12px;
+    text-align: center;
+  }
+  &--iframe {
+    // height: 50px;
+    padding: 8px 20px;
+    display: flex;
+    justify-content: center;
+    iframe {
+      border-radius: 10px;
+    }
   }
 }

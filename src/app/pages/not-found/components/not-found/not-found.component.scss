@@ -1,0 +1,30 @@
+.not-page {
+  &__container {
+    background-image: url(../../../../../assets/images/que-es-el-error-404.jpg);
+    height: 600px;
+    background-size: cover;
+    justify-content: center;
+    background-position: center;
+
+    display: flex;
+    // justify-content: center;
+  }
+  .title {
+    margin-top: 50px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  &__button {
+    display: flex;
+    justify-content: center;
+    margin-top: 230px;
+  }
+
+  &--button {
+    margin: 20px;
+    width: 120px;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
